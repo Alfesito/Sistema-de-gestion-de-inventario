@@ -42,11 +42,12 @@ Los estudiantes deben entregar el código fuente del programa junto con un archi
 ### 1.1. Creación de clase Producto
 
 Creamos la clase producto con el constructor y el método __str__. Los parámetros utilizados son:
-    - Id : int
-    - Nombre : string
-    - Precio : float
-    - Cantidad : int
-    - Categoria : string
+
+- Id : int
+- Nombre : string
+- Precio : float
+- Cantidad : int
+- Categoria : string
 
 ### 1.2. Creación de base de datos de gestion de inventario
 
