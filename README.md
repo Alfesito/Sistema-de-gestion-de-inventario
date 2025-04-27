@@ -23,8 +23,8 @@ Crear un programa en Python que simule un sistema de gestión de contactos. El p
 
 ### Instrucciones
 
-1. Crea una clase `Contacto` con atributos para el nombre, número de teléfono y correo electrónico.
-2. Crea una clase `GestionContactos` que contenga una lista de contactos y métodos para agregar, mostrar, buscar y eliminar contactos.
+1. Crea una clase Contacto con atributos para el nombre, número de teléfono y correo electrónico.
+2. Crea una clase GestionContactos que contenga una lista de contactos y métodos para agregar, mostrar, buscar y eliminar contactos.
 3. Implementa un menú que permita al usuario seleccionar una acción (agregar, mostrar, buscar o eliminar un contacto).
 4. Utiliza un archivo de texto para guardar la lista de contactos y carga los datos al iniciar el programa.
 5. Implementa validaciones para asegurar que el formato del correo electrónico es válido y que los campos requeridos no están vacíos.
@@ -109,21 +109,21 @@ La clase GestionInventario es la encargada de los métodos para agregar, mostrar
 ## Frontend
 El Frontend se ha realizado con Flask y Bootstrap. Se ha creado un archivo App.py para la parte de Flask y un index.html para la interfaz gráfica web donde el usuario puede realizar las distintas acciones:
 
-1. **`/` - `index()`**
+1. **/ - index()**
    - Muestra todos los productos.
 
-2. **`/agregar` - `agregar()`**
+2. **/agregar - agregar()**
    - Agrega un nuevo producto a la base de datos.
-   - **Método**: `POST`
+   - **Método**: POST
 
-3. **`/actualizar/<int:id>` - `actualizar(id)`**
-   - Actualiza un producto existente por su `id`.
-   - **Método**: `POST`
+3. **/actualizar/<int:id> - actualizar(id)**
+   - Actualiza un producto existente por su id.
+   - **Método**: POST
 
-4. **`/eliminar/<int:id>` - `eliminar(id)`**
-   - Elimina un producto por su `id`.
-   - **Método**: `GET`
+4. **/eliminar/<int:id> - eliminar(id)**
+   - Elimina un producto por su id.
+   - **Método**: GET
 
-5. **`/buscar` - `buscar()`**
+5. **/buscar - buscar()**
    - Busca productos por nombre o categoría (sin sensibilidad a mayúsculas ni tildes).
-   - **Método**: `POST`
+   - **Método**: POST
