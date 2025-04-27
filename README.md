@@ -53,7 +53,9 @@ Creamos la clase producto con el constructor y el método __str__. Los parámetr
 Creamos la base de datos en mysql con los parámetros de la clase Producto como columnas.
 
 > create database gestion_inventario;
+
 > use gestion_inventario;
+
 > create table productos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
@@ -61,53 +63,67 @@ Creamos la base de datos en mysql con los parámetros de la clase Producto como 
     cantidad INT NOT NULL,
     categoria VARCHAR(50)
 );
+
 > INSERT INTO productos (nombre, precio, cantidad, categoria) 
 VALUES ('Laptop Lenovo', 799.99, 10, 'Electrónica');
+
 > INSERT INTO productos (nombre, precio, cantidad, categoria) 
 VALUES ('Camiseta Nike', 29.99, 50, 'Ropa');
+
 > INSERT INTO productos (nombre, precio, cantidad, categoria) 
 VALUES ('Cafetera Philips', 89.50, 20, 'Electrodomésticos');
 
 ### 1.3. Creación de la clase Pool
 
 Con esta clase Pool queremos relizar un proxy entre la base de datos y Gestión de Inventarios (DAO). Se han creado los siguientes métodos de clase:
-    - obtener_pool
-    - obtener_conexion
-    - liberar_conexion
+
+- obtener_pool
+- obtener_conexion
+- liberar_conexion
 
 ### 1.4. Creación de las clase GestionInventario
 
 La clase GestionInventario es la encargada de los métodos para agregar, mostrar, buscar, actualizar y eliminar productos de la base de datos, especificando, los metedos que se van a utlizar en la aplicación son:
-    - Listar todos los productos:
-        SELECT * FROM productos
-    - Agregar productos:
-        INSERT INTO productos (nombre, precio, cantidad, categoria) VALUES (%s, %s, %s, %s)
-    - Actualizar productos:
-        UPDATE productos SET nombre = %s, precio = %s, cantidad = %s, categoria = %s WHERE id = %s
-    - Eliminar productos:
-        DELETE FROM productos WHERE id = %s
-    - Buscar productos según su nombre y su categoria:
-        SELECT * FROM productos WHERE nombre = %s
-        SELECT * FROM productos WHERE categoria = %s
+
+- Listar todos los productos:
+
+    SELECT * FROM productos
+
+- Agregar productos:
+
+    INSERT INTO productos (nombre, precio, cantidad, categoria) VALUES (%s, %s, %s, %s)
+
+- Actualizar productos:
+
+    UPDATE productos SET nombre = %s, precio = %s, cantidad = %s, categoria = %s WHERE id = %s
+
+- Eliminar productos:
+
+    DELETE FROM productos WHERE id = %s
+
+- Buscar productos según su nombre y su categoria:
+
+    SELECT * FROM productos WHERE nombre = %s
+    SELECT * FROM productos WHERE categoria = %s
 
 ## Frontend
 El Frontend se ha realizado con Flask y Bootstrap. Se ha creado un archivo App.py para la parte de Flask y un index.html para la interfaz gráfica web donde el usuario puede realizar las distintas acciones:
 
-### 1. **`/` - `index()`**
+1. **`/` - `index()`**
    - Muestra todos los productos.
 
-### 2. **`/agregar` - `agregar()`**
+2. **`/agregar` - `agregar()`**
    - Agrega un nuevo producto a la base de datos.
    - **Método**: `POST`
 
-### 3. **`/actualizar/<int:id>` - `actualizar(id)`**
+3. **`/actualizar/<int:id>` - `actualizar(id)`**
    - Actualiza un producto existente por su `id`.
    - **Método**: `POST`
 
-### 4. **`/eliminar/<int:id>` - `eliminar(id)`**
+4. **`/eliminar/<int:id>` - `eliminar(id)`**
    - Elimina un producto por su `id`.
    - **Método**: `GET`
 
-### 5. **`/buscar` - `buscar()`**
+5. **`/buscar` - `buscar()`**
    - Busca productos por nombre o categoría (sin sensibilidad a mayúsculas ni tildes).
    - **Método**: `POST`
