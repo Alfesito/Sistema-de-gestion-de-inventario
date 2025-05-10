@@ -128,3 +128,30 @@ El Frontend se ha realizado con Flask y Bootstrap. Se ha creado un archivo App.p
 5. **/buscar - buscar()**
    - Busca productos por nombre o categoría (sin sensibilidad a mayúsculas ni tildes).
    - **Método**: POST
+
+-----------------------
+
+# Instrucciones para configurar y ejecutar la aplicación
+
+```bash
+# Crear un entorno virtual
+python3 -m venv <nombre_env>
+
+# Activar el entorno virtual
+source <nombre_env>/bin/activate
+
+# Reiniciar el servicio de MySQL (Homebrew)
+brew services restart mysql
+
+# Instalar dependencias necesarias
+pip install flask
+pip install mysql-connector-python
+pip install unidecode
+
+# Ejecutar la aplicación
+python3 App.py
+
+# Desactivar el entorno virtual (opcional al terminar)
+deactivate
+
+> Nota: Sustituye `<nombre_env>` por el nombre que desees darle a tu entorno virtual (por ejemplo, `venv`).
